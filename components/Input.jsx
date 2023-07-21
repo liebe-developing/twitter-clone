@@ -86,14 +86,14 @@ const Input = () => {
                 <XMarkIcon
                   className={`${
                     isLoading && "hidden"
-                  } h-6 w-6 ml-1 mt-1 text-red-600 bg-red-100 hover:bg-red-200 absolute cursor-pointer shadow-sm shadow-white rounded-full`}
+                  } h-6 w-6 ml-1 mt-1 text-red-600 bg-red-100 h-50 hover:bg-red-200 absolute cursor-pointer shadow-sm shadow-white rounded-full`}
                   onClick={() => setSelectedFile(null)}
                 />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={selectedFile}
                   alt="post-image"
-                  className={`${isLoading && "animate-pulse"}`}
+                  className={`${isLoading && "animate-pulse"} h-[400px] w-full rounded-md`}
                 />
               </div>
             )}
