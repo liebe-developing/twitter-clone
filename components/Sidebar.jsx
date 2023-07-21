@@ -5,8 +5,11 @@ import React from "react";
 import SidebarMenuItem from "./SidebarMenuItem";
 import { SidebarItems } from "@/assets/dummy";
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/outline";
+import { useSession } from "next-auth/react";
 
 const Sidebar = () => {
+  const { data: session } = useSession();
+  console.log(session);
   return (
     <div className="hidden sm:flex flex-col p-2 xl:items-start fixed h-full xl:ml-24">
       {/* Twitter log */}
