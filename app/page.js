@@ -1,4 +1,4 @@
-import { Feed, Sidebar, Widgets } from "@/components";
+import { CommentModal, Feed, Sidebar, Widgets } from "@/components";
 
 async function getNews() {
   const news = await fetch(
@@ -41,6 +41,8 @@ export default async function Home() {
         newsResults={newsResults.articles}
         randomUsersResults={randomUsersResults.results}
       />
+
+      <CommentModal />
     </main>
   );
 }

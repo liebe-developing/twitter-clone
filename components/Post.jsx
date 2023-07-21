@@ -21,12 +21,16 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Moment from "react-moment";
+import { useRecoilState } from "recoil";
+import { modalState } from "@/atom/modalAtom";
 
 const Post = ({ post }) => {
   const router = useRouter();
   const { data: session } = useSession();
   const [likes, setLikes] = useState([]);
   const [hasLiked, setHasLiked] = useState(false);
+
+  const [open, setOpen] = useRecoilState(modalState);
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
@@ -112,7 +116,10 @@ const Post = ({ post }) => {
 
         {/* icons */}
         <div className="flex items-center justify-between text-gray-500 p-2">
-          <ChatBubbleOvalLeftEllipsisIcon className="h-9 w-9 hoverEffect p-2 hover:text-sky-500 hover:bg-sky-100" />
+          <ChatBubbleOvalLeftEllipsisIcon
+            onClick={() => setOpen(!open)}
+            className="h-9 w-9 hoverEffect p-2 hover:text-sky-500 hover:bg-sky-100"
+          />
           {session?.user.uid === post?.data().id && (
             <TrashIcon
               onClick={deletePost}
