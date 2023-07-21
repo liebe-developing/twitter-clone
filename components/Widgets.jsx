@@ -23,7 +23,7 @@ const Widgets = ({ newsResults, randomUsersResults }) => {
 
       {/* News */}
       <div className="widget_item_container">
-        <h4 className="font-bold text-xl px-4">What's happening</h4>
+        <h4 className="font-bold text-xl px-4">{`What's happening`}</h4>
         {newsResults.slice(0, articleNum).map((article) => (
           <News key={article.title} article={article} />
         ))}
