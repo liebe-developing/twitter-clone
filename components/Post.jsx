@@ -1,4 +1,4 @@
-import { db } from "@/firebase";
+import { db, storage } from "@/firebase";
 import {
   ChartBarIcon,
   ChatBubbleOvalLeftEllipsisIcon,
@@ -16,6 +16,7 @@ import {
   onSnapshot,
   setDoc,
 } from "firebase/firestore";
+import { deleteObject, ref } from "firebase/storage";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -40,6 +41,7 @@ const Post = ({ post }) => {
     );
   }, [likes]);
 
+  /* Like Post */
   async function likePost() {
     if (session) {
       if (hasLiked) {
@@ -51,6 +53,14 @@ const Post = ({ post }) => {
       }
     } else {
       router.push("/auth/signin");
+    }
+  }
+
+  /* Delete Post */
+  async function deletePost() {
+    if (window.confirm("Are you sure you want to delete this post?")) {
+      deleteDoc(doc(db, "posts", post.id));
+      deleteObject(ref(storage, `posts/${post.id}/image`));
     }
   }
 
@@ -101,7 +111,12 @@ const Post = ({ post }) => {
             {/* icons */}
             <div className="flex items-center justify-between text-gray-500 p-2">
               <ChatBubbleOvalLeftEllipsisIcon className="h-9 w-9 hoverEffect p-2 hover:text-sky-500 hover:bg-sky-100" />
-              <TrashIcon className="h-9 w-9 hoverEffect p-2 hover:text-red-600 hover:bg-red-100" />
+              {session?.user.uid === post?.data().id && (
+                <TrashIcon
+                  onClick={deletePost}
+                  className="h-9 w-9 hoverEffect p-2 hover:text-red-600 hover:bg-red-100"
+                />
+              )}
               <div className="flex items-center">
                 {hasLiked ? (
                   <SolidHeartIcon
