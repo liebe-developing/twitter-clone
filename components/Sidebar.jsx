@@ -23,7 +23,7 @@ const Sidebar = () => {
       {/* Twitter log */}
       <div className="hoverEffect p-0 hover:bg-blue-100 xl:px-1">
         <Image
-          src="https://help.twitter.com/content/dam/help-twitter/brand/logo.png"
+          src="/twitter-logo.png"
           width={50}
           height={50}
           alt="Twitter logo"
