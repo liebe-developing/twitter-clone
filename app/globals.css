@@ -6,4 +6,8 @@
   .hoverEffect {
     @apply cursor-pointer hover:bg-gray-200 rounded-full w-[52px] xl:w-auto h-[52px] xl:h-auto xl:p-3;
   }
+
+  .widget_item_container {
+    @apply text-gray-700 space-y-3 bg-gray-100 rounded-xl pt-2 w-[90%] xl:w-[75%];
+  }
 }

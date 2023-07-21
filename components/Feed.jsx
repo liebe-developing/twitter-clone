@@ -24,6 +24,36 @@ const Feed = () => {
       text: "Learn programming fast and easy!",
       timestamp: "a day ago",
     },
+    {
+      id: "2",
+      name: "John doe",
+      username: "doejohn",
+      userImage: "/myPhoto.gif",
+      postImage:
+        "https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZ3JhbW1pbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+      text: "Learn programming fast and easy!",
+      timestamp: "a day ago",
+    },
+    {
+      id: "2",
+      name: "John doe",
+      username: "doejohn",
+      userImage: "/myPhoto.gif",
+      postImage:
+        "https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZ3JhbW1pbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+      text: "Learn programming fast and easy!",
+      timestamp: "a day ago",
+    },
+    {
+      id: "2",
+      name: "John doe",
+      username: "doejohn",
+      userImage: "/myPhoto.gif",
+      postImage:
+        "https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZ3JhbW1pbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+      text: "Learn programming fast and easy!",
+      timestamp: "a day ago",
+    },
   ];
   return (
     <div className="xl:ml-[370px] border-l border-r border-gray-200 xl:min-w-[576px] sm:ml-[73px] flex-grow max-w-xl">
