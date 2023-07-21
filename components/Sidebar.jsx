@@ -14,11 +14,10 @@ import {
   UserIcon,
   EllipsisHorizontalCircleIcon,
 } from "@heroicons/react/24/outline";
-import { useRouter } from "next/navigation";
 
 const Sidebar = () => {
   const { data: session } = useSession();
-  const router = useRouter();
+  console.log(session);
   return (
     <div className="hidden sm:flex flex-col p-2 xl:items-start fixed h-full xl:ml-24">
       {/* Twitter log */}
