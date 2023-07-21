@@ -67,87 +67,83 @@ const Post = ({ post }) => {
   }
 
   return (
-    <>
-      {post && (
-        <div className="flex p-3 cursor-pointer border-b border-b-gray-200 ">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={post.data().userImg}
-            alt="user-image"
-            className="rounded-full h-11 w-11 mr-4"
-          />
-          {/* Right side */}
-          <div className="flex flex-col w-full">
-            {/* Header */}
-            <div className="flex items-center justify-between">
-              {/* post user info */}
-              <div className="flex items-center space-x-1 whitespace-nowrap">
-                <h4 className="font-bold text-[15px] sm:text-[16px] hover:underline">
-                  {post.data().name}
-                </h4>
-                <span className="text-sm sm:text-[15px]">
-                  @{post.data().username} -
-                </span>
-                <span className="text-sm sm:text-[15px] hover:underline">
-                  <Moment fromNow>{post?.data().timestamp?.toDate()}</Moment>
-                </span>
-              </div>
-
-              {/* dot icon */}
-              <EllipsisHorizontalIcon className="h-10 hoverEffect w-10 hover:bg-sky-100 hover:text-sky-500 p-2" />
-            </div>
-
-            {/* post text */}
-            <p className="text-gray-800 text-[15px] sm:text-[16px] mb-2">
-              {post.data().text}
-            </p>
-
-            {/* post image */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={post.data().image}
-              alt="post-image"
-              className="rounded-2xl mr-2 w-full h-[250px] sm:h-[400px]"
-            />
-
-            {/* icons */}
-            <div className="flex items-center justify-between text-gray-500 p-2">
-              <ChatBubbleOvalLeftEllipsisIcon className="h-9 w-9 hoverEffect p-2 hover:text-sky-500 hover:bg-sky-100" />
-              {session?.user.uid === post?.data().id && (
-                <TrashIcon
-                  onClick={deletePost}
-                  className="h-9 w-9 hoverEffect p-2 hover:text-red-600 hover:bg-red-100"
-                />
-              )}
-              <div className="flex items-center">
-                {hasLiked ? (
-                  <SolidHeartIcon
-                    className="h-9 w-9 hoverEffect p-2 text-red-600 hover:bg-red-100"
-                    onClick={likePost}
-                  />
-                ) : (
-                  <HeartIcon
-                    className="h-9 w-9 hoverEffect p-2 hover:text-red-600 hover:bg-red-100"
-                    onClick={likePost}
-                  />
-                )}
-                {likes.length > 0 && (
-                  <span
-                    className={`${
-                      hasLiked && "text-red-600"
-                    } text-sm select-none`}
-                  >
-                    {likes.length}
-                  </span>
-                )}
-              </div>
-              <ShareIcon className="h-9 w-9 hoverEffect p-2 hover:text-sky-500 hover:bg-sky-100" />
-              <ChartBarIcon className="h-9 w-9 hoverEffect p-2 hover:text-sky-500 hover:bg-sky-100" />
-            </div>
+    <div className="flex p-3 cursor-pointer border-b border-b-gray-200 ">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={post.data().userImg}
+        alt="user-image"
+        className="rounded-full h-11 w-11 mr-4"
+      />
+      {/* Right side */}
+      <div className="flex flex-col w-full">
+        {/* Header */}
+        <div className="flex items-center justify-between">
+          {/* post user info */}
+          <div className="flex items-center space-x-1 whitespace-nowrap">
+            <h4 className="font-bold text-[15px] sm:text-[16px] hover:underline">
+              {post.data().name}
+            </h4>
+            <span className="text-sm sm:text-[15px]">
+              @{post.data().username} -
+            </span>
+            <span className="text-sm sm:text-[15px] hover:underline">
+              <Moment fromNow>{post?.data().timestamp?.toDate()}</Moment>
+            </span>
           </div>
+
+          {/* dot icon */}
+          <EllipsisHorizontalIcon className="h-10 hoverEffect w-10 hover:bg-sky-100 hover:text-sky-500 p-2" />
         </div>
-      )}
-    </>
+
+        {/* post text */}
+        <p className="text-gray-800 text-[15px] sm:text-[16px] mb-2">
+          {post.data().text}
+        </p>
+
+        {/* post image */}
+        {post.data().image && (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img
+            src={post.data().image}
+            alt="post-image"
+            className="rounded-2xl mr-2 w-full h-[250px] sm:h-[400px]"
+          />
+        )}
+
+        {/* icons */}
+        <div className="flex items-center justify-between text-gray-500 p-2">
+          <ChatBubbleOvalLeftEllipsisIcon className="h-9 w-9 hoverEffect p-2 hover:text-sky-500 hover:bg-sky-100" />
+          {session?.user.uid === post?.data().id && (
+            <TrashIcon
+              onClick={deletePost}
+              className="h-9 w-9 hoverEffect p-2 hover:text-red-600 hover:bg-red-100"
+            />
+          )}
+          <div className="flex items-center">
+            {hasLiked ? (
+              <SolidHeartIcon
+                className="h-9 w-9 hoverEffect p-2 text-red-600 hover:bg-red-100"
+                onClick={likePost}
+              />
+            ) : (
+              <HeartIcon
+                className="h-9 w-9 hoverEffect p-2 hover:text-red-600 hover:bg-red-100"
+                onClick={likePost}
+              />
+            )}
+            {likes.length > 0 && (
+              <span
+                className={`${hasLiked && "text-red-600"} text-sm select-none`}
+              >
+                {likes.length}
+              </span>
+            )}
+          </div>
+          <ShareIcon className="h-9 w-9 hoverEffect p-2 hover:text-sky-500 hover:bg-sky-100" />
+          <ChartBarIcon className="h-9 w-9 hoverEffect p-2 hover:text-sky-500 hover:bg-sky-100" />
+        </div>
+      </div>
+    </div>
   );
 };
 
