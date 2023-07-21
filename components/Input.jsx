@@ -1,11 +1,16 @@
+"use client";
+
 import { PhotoIcon, FaceSmileIcon } from "@heroicons/react/24/outline";
+import { useSession } from "next-auth/react";
 
 const Input = () => {
+  const { data: session } = useSession();
+
   return (
     <div className="flex border-b border-b-gray-200 p-3 space-x-3">
       {/*  eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/myPhoto.gif"
+        src={session?.user?.image}
         alt="User image"
         className="h-11 w-11 rounded-full cursor-pointer hover:brightness-95"
       />

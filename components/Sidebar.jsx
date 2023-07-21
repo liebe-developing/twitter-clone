@@ -9,7 +9,6 @@ import { useSession } from "next-auth/react";
 
 const Sidebar = () => {
   const { data: session } = useSession();
-  console.log(session);
   return (
     <div className="hidden sm:flex flex-col p-2 xl:items-start fixed h-full xl:ml-24">
       {/* Twitter log */}
@@ -42,15 +41,15 @@ const Sidebar = () => {
       {/* Mini-Profile */}
       <div className="hoverEffect text-gray-700 flex items-center justify-center xl:justify-start mt-auto">
         <Image
-          src="/myPhoto.gif"
+          src={session?.user?.image}
           width={40}
           height={40}
           alt="User image"
           className="rounded-full xl:mr-2"
         />
         <div className="leading-5 hidden xl:inline">
-          <h4 className="font-bold">Ali Razmjooei</h4>
-          <p className="text-gray-500">@alirazmjooei</p>
+          <h4 className="font-bold">{session?.user?.name}</h4>
+          <p className="text-gray-500">@{session?.user?.email}</p>
         </div>
         <EllipsisHorizontalIcon className="h-5 xl:ml-8 hidden xl:inline" />
       </div>
