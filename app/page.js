@@ -1,4 +1,4 @@
-import { Feed, Sidebar } from "@/components";
+import { Feed, Sidebar, Widgets } from "@/components";
 
 export default function Home() {
   return (
@@ -10,6 +10,7 @@ export default function Home() {
       <Feed />
 
       {/* Widgets */}
+      <Widgets />
     </main>
   );
 }

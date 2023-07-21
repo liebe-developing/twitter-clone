@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { PhotoIcon, FaceSmileIcon } from "@heroicons/react/24/outline";
 
 const Input = () => {
