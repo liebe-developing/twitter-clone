@@ -23,6 +23,7 @@ import { useEffect, useState } from "react";
 import Moment from "react-moment";
 import { useRecoilState } from "recoil";
 import { modalState, postIdState } from "@/atom/modalAtom";
+import Link from "next/link";
 
 const Post = ({ post, id }) => {
   const router = useRouter();
@@ -88,7 +89,7 @@ const Post = ({ post, id }) => {
         className="rounded-full h-11 w-11 mr-4"
       />
       {/* Right side */}
-      <div className="flex flex-col w-full">
+      <div className="flex flex-col md:w-full">
         {/* Header */}
         <div className="flex items-center justify-between">
           {/* post user info */}
@@ -102,26 +103,28 @@ const Post = ({ post, id }) => {
             <span className="text-sm sm:text-[15px] hover:underline">
               <Moment fromNow>{post?.data()?.timestamp?.toDate()}</Moment>
             </span>
-          </div>
 
-          {/* dot icon */}
-          <EllipsisHorizontalIcon className="h-10 hoverEffect w-10 hover:bg-sky-100 hover:text-sky-500 p-2" />
+            {/* dot icon */}
+            <EllipsisHorizontalIcon className="h-10 hoverEffect w-10 hover:bg-sky-100 hover:text-sky-500 p-2" />
+          </div>
         </div>
 
-        {/* post text */}
-        <p className="text-gray-800 text-[15px] sm:text-[16px] mb-2">
-          {post?.data()?.text}
-        </p>
+        <Link href={`/posts/${id}`}>
+          {/* post text */}
+          <p className="text-gray-800 text-[15px] sm:text-[16px] mb-2">
+            {post?.data()?.text}
+          </p>
 
-        {/* post image */}
-        {post?.data()?.image && (
-          /* eslint-disable-next-line @next/next/no-img-element */
-          <img
-            src={post?.data()?.image}
-            alt="post-image"
-            className="rounded-2xl mr-2 w-full h-[250px] sm:h-[400px]"
-          />
-        )}
+          {/* post image */}
+          {post?.data()?.image && (
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img
+              src={post?.data()?.image}
+              alt="post-image"
+              className="rounded-2xl mr-2 w-full h-[250px] sm:h-[400px]"
+            />
+          )}
+        </Link>
 
         {/* icons */}
         <div className="flex items-center justify-between text-gray-500 p-2">

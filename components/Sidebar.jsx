@@ -58,13 +58,12 @@ const Sidebar = () => {
 
           {/* Mini-Profile */}
           <div className="hoverEffect text-gray-700 flex items-center justify-center xl:justify-start mt-auto">
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               onClick={signOut}
               src={session?.user?.image}
-              width={40}
-              height={40}
               alt="User image"
-              className="rounded-full xl:mr-2"
+              className="h-10 w-10 rounded-full xl:mr-2"
             />
             <div className="leading-5 hidden xl:inline">
               <h4 className="font-bold">{session?.user?.name}</h4>
