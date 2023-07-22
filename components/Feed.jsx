@@ -41,7 +41,7 @@ const Feed = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
           >
-            <Post post={post} />
+            <Post id={post.id} post={post} />
           </motion.div>
         ))}
       </AnimatePresence>
