@@ -6,15 +6,24 @@ import Modal from "react-modal";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
 import { db } from "@/firebase";
-import { doc, onSnapshot } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  doc,
+  onSnapshot,
+  serverTimestamp,
+} from "firebase/firestore";
 import Moment from "react-moment";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { FaceSmileIcon, PhotoIcon } from "@heroicons/react/24/outline";
 import { useRef } from "react";
+import { useRouter } from "next/navigation";
 
 const CommentModal = () => {
   const [post, setPost] = useState({});
   const [input, setInput] = useState("");
+
+  const router = useRouter();
 
   const filePickerRef = useRef(null);
 
@@ -28,7 +37,19 @@ const CommentModal = () => {
       setPost(snapshot);
     });
   }, [postId, db]);
-  const sendComment = async () => {};
+
+  const sendComment = async () => {
+    await addDoc(collection(db, "posts", postId, "comments"), {
+      comment: input,
+      name: session?.user.name,
+      username: session?.user.username,
+      userImg: session?.user.image,
+      timestamp: serverTimestamp(),
+    });
+    setOpen(false);
+    setInput("");
+    router.push(`/posts/${postId}`);
+  };
 
   const addImageToPost = (e) => {
     const reader = new FileReader();
