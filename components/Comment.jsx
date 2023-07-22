@@ -91,7 +91,7 @@ const Comment = ({ comment, commentId, originalPostId }) => {
     }
   }
   return (
-    <div className="flex p-3 cursor-pointer border-b border-b-gray-200 md:pl-20 max-w-md">
+    <div className="flex p-3 cursor-pointer border-b border-b-gray-200 md:pl-20">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={comment?.userImg}
@@ -101,9 +101,9 @@ const Comment = ({ comment, commentId, originalPostId }) => {
       {/* Right side */}
       <div className="flex flex-col w-full">
         {/* Header */}
-        <div className="flex items-center justify-between">
+        <div className="flex w-full items-center justify-between">
           {/* post user info */}
-          <div className="flex items-center space-x-1 whitespace-nowrap">
+          <div className="flex items-center justify-between whitespace-nowrap">
             <h4 className="font-bold text-[15px] sm:text-[16px] hover:underline">
               {comment?.name}
             </h4>
@@ -114,9 +114,8 @@ const Comment = ({ comment, commentId, originalPostId }) => {
               <Moment fromNow>{comment?.timestamp?.toDate()}</Moment>
             </span>
           </div>
-
           {/* dot icon */}
-          <EllipsisHorizontalIcon className="h-10 hoverEffect w-10 hover:bg-sky-100 hover:text-sky-500 p-2" />
+          <EllipsisHorizontalIcon className="h-10 hoverEffect w-10 hover:bg-sky-100 hover:text-sky-500 p-2 ml-auto" />
         </div>
 
         {/* post text */}

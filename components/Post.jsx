@@ -93,16 +93,18 @@ const Post = ({ post, id }) => {
         {/* Header */}
         <div className="flex items-center justify-between">
           {/* post user info */}
-          <div className="flex items-center space-x-1 whitespace-nowrap">
-            <h4 className="font-bold text-[15px] sm:text-[16px] hover:underline">
-              {post?.data()?.name}
-            </h4>
-            <span className="text-sm sm:text-[15px]">
-              @{post?.data()?.username} -
-            </span>
-            <span className="text-sm sm:text-[15px] hover:underline">
-              <Moment fromNow>{post?.data()?.timestamp?.toDate()}</Moment>
-            </span>
+          <div className="flex items-center justify-between w-full whitespace-nowrap">
+            <div className="flex items-center space-x-1">
+              <h4 className="font-bold text-[15px] sm:text-[16px] hover:underline">
+                {post?.data()?.name}
+              </h4>
+              <span className="text-sm sm:text-[15px]">
+                @{post?.data()?.username} -
+              </span>
+              <span className="text-sm sm:text-[15px] hover:underline">
+                <Moment fromNow>{post?.data()?.timestamp?.toDate()}</Moment>
+              </span>
+            </div>
 
             {/* dot icon */}
             <EllipsisHorizontalIcon className="h-10 hoverEffect w-10 hover:bg-sky-100 hover:text-sky-500 p-2" />
