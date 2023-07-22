@@ -14,9 +14,12 @@ import {
   UserIcon,
   EllipsisHorizontalCircleIcon,
 } from "@heroicons/react/24/outline";
+import { tweetModalState } from "@/atom/modalAtom";
+import { useRecoilState } from "recoil";
 
 const Sidebar = () => {
   const { data: session } = useSession();
+  const [open, setOpen] = useRecoilState(tweetModalState);
 
   return (
     <div className="hidden sm:flex flex-col p-2 xl:items-start fixed h-full xl:ml-24">
@@ -52,7 +55,10 @@ const Sidebar = () => {
       {/* Tweet Button */}
       {session ? (
         <>
-          <button className="bg-blue-400 text-white rounded-full w-56 h-12 font-bold shadow-md hover:brightness-95 text-lg hidden xl:inline">
+          <button
+            onClick={() => setOpen(!open)}
+            className="bg-blue-400 text-white rounded-full w-56 h-12 font-bold shadow-md hover:brightness-95 text-lg hidden xl:inline"
+          >
             Tweet
           </button>
 
