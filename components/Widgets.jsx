@@ -26,7 +26,7 @@ const Widgets = ({ newsResults, randomUsersResults }) => {
       <div className="widget_item_container">
         <h4 className="font-bold text-xl px-4">{`What's happening`}</h4>
         <AnimatePresence>
-          {newsResults.slice(0, articleNum).map((article) => (
+          {newsResults?.slice(0, articleNum).map((article) => (
             <motion.div
               key={article.title}
               initial={{ opacity: 0 }}
@@ -50,7 +50,7 @@ const Widgets = ({ newsResults, randomUsersResults }) => {
       <div className="widget_item_container sticky top-16">
         <h4 className="font-bold text-xl px-4">Who to follow</h4>
         <AnimatePresence>
-          {randomUsersResults.slice(0, userNum).map((user) => (
+          {randomUsersResults?.slice(0, userNum).map((user) => (
             <motion.div
               key={user.login.username}
               initial={{ opacity: 0 }}

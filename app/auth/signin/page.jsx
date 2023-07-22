@@ -10,7 +10,7 @@ const Singin = () => {
     <div className="flex justify-center mt-20 space-x-4">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="https://cdn.cms-twdigitalassets.com/content/dam/help-twitter/en/twitter-tips/desktop-assets/ch-01/ch12findphone.png.twimg.1920.png"
+        src="/twitter-phone.png"
         alt="twitter image inside a phone"
         className="hidden object-cover md:w-44 md:h-80 rotate-6 md:inline-flex"
       />
@@ -19,7 +19,7 @@ const Singin = () => {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             className="w-36 object-cover"
-            src="https://help.twitter.com/content/dam/help-twitter/brand/logo.png"
+            src="/twitter-logo.png"
             alt="twitter logo"
           />
           <p className="text-center text-sm italic my-10">
