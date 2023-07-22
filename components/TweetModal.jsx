@@ -5,7 +5,7 @@ import { tweetModalState } from "@/atom/modalAtom";
 import Modal from "react-modal";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
-import { db } from "@/firebase";
+import { db, storage } from "@/firebase";
 import {
   addDoc,
   collection,
@@ -127,7 +127,10 @@ const TweetModal = () => {
                       <button
                         className="bg-blue-400 text-white px-4 py-1.5 rounded-full font-bold shadow-md hover:brightness-95 disabled:opacity-50"
                         disabled={!input.trim()}
-                        onClick={sendPost}
+                        onClick={() => {
+                          sendPost;
+                          setOpen(false);
+                        }}
                       >
                         Tweet
                       </button>
