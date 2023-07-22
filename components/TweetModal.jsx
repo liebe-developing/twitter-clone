@@ -1,24 +1,22 @@
 "use client";
 
 import { useRecoilState } from "recoil";
-import { modalState, postIdState, tweetModalState } from "@/atom/modalAtom";
+import { tweetModalState } from "@/atom/modalAtom";
 import Modal from "react-modal";
 import { XMarkIcon } from "@heroicons/react/24/solid";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { db } from "@/firebase";
 import {
   addDoc,
   collection,
   doc,
-  onSnapshot,
   serverTimestamp,
+  updateDoc,
 } from "firebase/firestore";
-import Moment from "react-moment";
 import { useSession } from "next-auth/react";
 import { FaceSmileIcon, PhotoIcon } from "@heroicons/react/24/outline";
 import { useRef } from "react";
-import { useRouter } from "next/navigation";
-import Input from "./Input";
+import { getDownloadURL, ref, uploadString } from "firebase/storage";
 
 const TweetModal = () => {
   const [open, setOpen] = useRecoilState(tweetModalState);
