@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import RecoilProvider from "@/components/RecoilProvider";
 import { CommentModal, Sidebar, Widgets } from "@/components";
+import TweetModal from "@/components/TweetModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default async function RootLayout({ children }) {
           <Provider>
             {children}
             <CommentModal />
+            <TweetModal />
           </Provider>
         </RecoilProvider>
       </body>

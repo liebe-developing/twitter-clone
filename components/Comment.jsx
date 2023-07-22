@@ -103,14 +103,14 @@ const Comment = ({ comment, commentId, originalPostId }) => {
         {/* Header */}
         <div className="flex w-full items-center justify-between">
           {/* post user info */}
-          <div className="flex items-center justify-between whitespace-nowrap">
-            <h4 className="font-bold text-[15px] sm:text-[16px] hover:underline">
+          <div className="flex items-center space-x-1 justify-between whitespace-nowrap">
+            <h4 className="font-bold text-[14] sm:text-[16px] hover:underline">
               {comment?.name}
             </h4>
-            <span className="text-sm sm:text-[15px]">
+            <span className="text-[13px] sm:text-[15px]">
               @{comment?.username} -
             </span>
-            <span className="text-sm sm:text-[15px] hover:underline">
+            <span className="text-xs sm:text-[15px] hover:underline">
               <Moment fromNow>{comment?.timestamp?.toDate()}</Moment>
             </span>
           </div>
