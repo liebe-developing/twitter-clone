@@ -80,7 +80,7 @@ const CommentModal = () => {
               </div>
             </div>
 
-            <div className="p-2 flex items-center space-x-1 relative">
+            <div className="p-2 flex items-center space-x-1 relative truncate">
               <span className="w-0.5 h-full z-[-1] absolute left-8 top-11 bg-gray-300" />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -91,10 +91,10 @@ const CommentModal = () => {
               <h4 className="font-bold text-[15px] sm:text-[16px] hover:underline">
                 {post?.data()?.name}
               </h4>
-              <span className="text-sm sm:text-[15px]">
+              <span className="text-sm sm:text-[15px] truncate">
                 @{post?.data()?.username} -
               </span>
-              <span className="text-sm sm:text-[15px] hover:underline">
+              <span className="text-sm sm:text-[15px] hover:underline truncate">
                 <Moment fromNow>{post?.data()?.timestamp?.toDate()}</Moment>
               </span>
             </div>

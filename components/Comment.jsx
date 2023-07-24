@@ -91,7 +91,7 @@ const Comment = ({ comment, commentId, originalPostId }) => {
     }
   }
   return (
-    <div className="flex p-3 cursor-pointer border-b border-b-gray-200 pl-14 md:pl-20">
+    <div className="flex p-3 cursor-pointer border-b border-b-gray-200 md:pl-20">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={comment?.userImg}
@@ -101,21 +101,24 @@ const Comment = ({ comment, commentId, originalPostId }) => {
       {/* Right side */}
       <div className="flex flex-col w-full">
         {/* Header */}
-        <div className="flex w-full items-center justify-between">
+        <div className="flex items-center justify-between">
           {/* post user info */}
-          <div className="flex items-center space-x-1 justify-between whitespace-nowrap">
-            <h4 className="font-bold text-[14] sm:text-[16px] hover:underline">
-              {comment?.name}
-            </h4>
-            <span className="text-[13px] sm:text-[15px]">
-              @{comment?.username} -
-            </span>
-            <span className="text-xs sm:text-[15px] hover:underline">
-              <Moment fromNow>{comment?.timestamp?.toDate()}</Moment>
-            </span>
+          <div className="flex items-center justify-between w-full whitespace-nowrap">
+            <div className="flex items-center space-x-1 truncate">
+              <h4 className="font-bold text-[14px] sm:text-[16px] hover:underline">
+                {comment?.name}
+              </h4>
+              <span className="text-[13px] sm:text-[15px] max-w-[90px] truncate sm:max-w-full">
+                @{comment?.username} -
+              </span>
+              <span className="text-xs sm:text-[15px] hover:underline max-w-[90px] truncate sm:max-w-full">
+                <Moment fromNow>{comment?.timestamp?.toDate()}</Moment>
+              </span>
+            </div>
+
+            {/* dot icon */}
+            <EllipsisHorizontalIcon className="h-10 hoverEffect w-10 hover:bg-sky-100 hover:text-sky-500 p-2" />
           </div>
-          {/* dot icon */}
-          <EllipsisHorizontalIcon className="h-10 hoverEffect w-10 hover:bg-sky-100 hover:text-sky-500 p-2 ml-auto" />
         </div>
 
         {/* post text */}
