@@ -120,8 +120,8 @@ const CommentModal = () => {
                   ></textarea>
                 </div>
 
-                <div className="flex items-center justify-between pt-2.5">
-                  <div className="flex items-center">
+                <div className="flex items-center justify-end pt-2.5">
+                  {/* <div className="flex items-center">
                     <div onClick={() => filePickerRef.current.click()}>
                       <PhotoIcon className="h-10 w-10 hoverEffect p-2 text-sky-500 hover:bg-sky-100" />
                       <input
@@ -132,7 +132,7 @@ const CommentModal = () => {
                       />
                     </div>
                     <FaceSmileIcon className="h-10 w-10 hoverEffect p-2 text-sky-500 hover:bg-sky-100" />
-                  </div>
+                  </div> */}
                   <button
                     className="bg-blue-400 text-white px-4 py-1.5 rounded-full font-bold shadow-md hover:brightness-95 disabled:opacity-50"
                     disabled={!input.trim()}

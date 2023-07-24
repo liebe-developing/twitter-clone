@@ -91,7 +91,7 @@ const Comment = ({ comment, commentId, originalPostId }) => {
     }
   }
   return (
-    <div className="flex p-3 cursor-pointer border-b border-b-gray-200 md:pl-20">
+    <div className="flex p-3 cursor-pointer border-b border-b-gray-200 pl-14 md:pl-20">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={comment?.userImg}

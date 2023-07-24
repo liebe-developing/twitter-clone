@@ -9,6 +9,7 @@ import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db } from "@/firebase";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import { signIn } from "next-auth/react";
 
 const Feed = () => {
   const [posts, setPosts] = useState([]);
@@ -33,10 +34,18 @@ const Feed = () => {
           width={50}
           height={50}
           alt="Twitter logo"
-          className="inline sm:hidden"
+          className="inline sm:hidden justify-center ml-10"
         />
-        <div className="hoverEffect flex items-center justify-center px-0 w-9 h-9">
-          <SparklesIcon className="h-5" />
+        <div className="flex items-center gap-1">
+          <button
+            className=" inline xl:hidden font-medium hover:text-sky-600"
+            onClick={signIn}
+          >
+            Sign in
+          </button>
+          <div className="hoverEffect flex items-center justify-center px-0 w-9 h-9">
+            <SparklesIcon className="h-5" />
+          </div>
         </div>
       </div>
       <Input />
