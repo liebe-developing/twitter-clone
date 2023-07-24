@@ -63,7 +63,7 @@ const Input = () => {
   return (
     <>
       {session && (
-        <div className="flex border-b border-b-gray-200 p-3 space-x-3">
+        <div className="flex border-b border-b-[#EFF3F4] p-3 space-x-3">
           {/*  eslint-disable-next-line @next/next/no-img-element */}
           <img
             onClick={signOut}
@@ -71,7 +71,7 @@ const Input = () => {
             alt="User image"
             className="h-11 w-11 rounded-full cursor-pointer hover:brightness-95"
           />
-          <div className="w-full divide-y divide-gray-200">
+          <div className="w-full divide-y divide-[#EFF3F4]">
             <div className="">
               <textarea
                 className="w-full border-none focus:ring-0 text-lg placeholder-gray-700 tracking-wide min-h-[50px] text-gray-700 "
@@ -93,7 +93,9 @@ const Input = () => {
                 <img
                   src={selectedFile}
                   alt="post-image"
-                  className={`${isLoading && "animate-pulse"} h-[400px] w-full rounded-md`}
+                  className={`${
+                    isLoading && "animate-pulse"
+                  } h-[400px] w-full rounded-md`}
                 />
               </div>
             )}

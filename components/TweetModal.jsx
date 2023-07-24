@@ -52,6 +52,7 @@ const TweetModal = () => {
     setInput("");
     setSelectedFile(null);
     setIsLoading(false);
+    setOpen(false);
   };
 
   const addImageToPost = (e) => {
@@ -73,6 +74,15 @@ const TweetModal = () => {
           className="max-w-lg w-[90%] absolute top-24 left-[50%] translate-x-[-50%] bg-white border-2 border-gray-400 rounded-xl shadow-md h-auto"
         >
           <div className="p-1">
+            <div className="border-b border-gray-200 py-2 px-1.5">
+              <div
+                onClick={() => setOpen(false)}
+                className="hoverEffect w-11 h-11 flex justify-center items-center"
+              >
+                <XMarkIcon className="h-[22px] text-gray-700" />
+              </div>
+            </div>
+
             <div className="flex border-b border-b-gray-200 p-3 space-x-3">
               {/*  eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -127,10 +137,7 @@ const TweetModal = () => {
                       <button
                         className="bg-blue-400 text-white px-4 py-1.5 rounded-full font-bold shadow-md hover:brightness-95 disabled:opacity-50"
                         disabled={!input.trim()}
-                        onClick={() => {
-                          sendPost;
-                          setOpen(false);
-                        }}
+                        onClick={sendPost}
                       >
                         Tweet
                       </button>

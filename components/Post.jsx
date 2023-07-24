@@ -81,7 +81,7 @@ const Post = ({ post, id }) => {
   }
 
   return (
-    <div className="flex p-3 cursor-pointer border-b border-b-gray-200 ">
+    <div className="flex p-2 sm:p-3 cursor-pointer border-b border-b-[#EFF3F4] overflow-x-hidden">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={post?.data()?.userImg}
@@ -89,19 +89,19 @@ const Post = ({ post, id }) => {
         className="rounded-full h-11 w-11 mr-4"
       />
       {/* Right side */}
-      <div className="flex flex-col md:w-full">
+      <div className="flex flex-1 flex-col">
         {/* Header */}
         <div className="flex items-center justify-between">
           {/* post user info */}
           <div className="flex items-center justify-between w-full whitespace-nowrap">
-            <div className="flex items-center space-x-1">
+            <div className="flex items-center space-x-1 truncate">
               <h4 className="font-bold text-[14px] sm:text-[16px] hover:underline">
                 {post?.data()?.name}
               </h4>
-              <span className="text-[13px] sm:text-[15px]">
+              <span className="text-[13px] sm:text-[15px] max-w-[90px] truncate sm:max-w-full">
                 @{post?.data()?.username} -
               </span>
-              <span className="text-xs sm:text-[15px] hover:underline">
+              <span className="text-xs sm:text-[15px] hover:underline max-w-[90px] truncate sm:max-w-full">
                 <Moment fromNow>{post?.data()?.timestamp?.toDate()}</Moment>
               </span>
             </div>
@@ -123,7 +123,7 @@ const Post = ({ post, id }) => {
             <img
               src={post?.data()?.image}
               alt="post-image"
-              className="rounded-2xl mr-2 w-full h-[250px] sm:h-[400px]"
+              className="rounded-2xl w-[95%] mr-2 h-[250px] sm:h-[400px]"
             />
           )}
         </Link>
